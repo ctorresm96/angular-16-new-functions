@@ -6,15 +6,10 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
-  constructor() {}
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> | Promise<boolean> {
-    console.log(route);
-    console.log(state);
+  canActivate(): Observable<boolean> | Promise<boolean> | boolean {
+    return true;
     throw new Error('Method not implemented.');
   }
 }

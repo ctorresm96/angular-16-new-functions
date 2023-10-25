@@ -14,6 +14,6 @@ export class FunctionalComponent {
   }
 
   goToListUsers() {
-    this.router.navigate(['functional/users']);
+    this.router.navigate(['functional/products']);
   }
 }
