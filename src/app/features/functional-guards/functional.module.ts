@@ -31,6 +31,5 @@ const routes: Route[] = [
 @NgModule({
   declarations: [FunctionalComponent, PrivateDataComponent, ProductsComponent],
   imports: [CommonModule, RouterModule.forChild(routes), RouterModule],
-  providers: [UserResolver],
 })
 export class FunctionalModule {}

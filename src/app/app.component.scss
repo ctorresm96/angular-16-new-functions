@@ -1,0 +1,19 @@
+.navbar {
+  width: 100vw;
+  background-color: antiquewhite;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  & a {
+    text-decoration: none;
+    color: rgb(87, 72, 51);
+    padding: 16px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.active {
+  text-decoration: underline !important;
+}
