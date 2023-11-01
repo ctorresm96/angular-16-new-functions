@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MainResolver } from './common/resolvers/resolver';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'functional' },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./features/main/main.module').then((m) => m.MainModule),
+    resolve: { permissions: MainResolver },
+  },
   {
     path: 'functional',
     loadChildren: () =>
@@ -27,7 +33,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
