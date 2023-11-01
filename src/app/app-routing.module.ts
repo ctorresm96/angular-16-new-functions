@@ -17,6 +17,13 @@ const routes: Routes = [
         (m) => m.DestroyRefModule
       ),
   },
+  {
+    path: 'typed-forms',
+    loadChildren: () =>
+      import('./features/typed-forms/typed-forms.module').then(
+        (m) => m.FunctionalModule
+      ),
+  },
 ];
 
 @NgModule({

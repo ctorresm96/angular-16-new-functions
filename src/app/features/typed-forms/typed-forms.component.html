@@ -1,0 +1,23 @@
+<div class="container">
+  <form [formGroup]="form">
+    <div class="py-2">
+      <label>Nombres</label>
+      <input formControlName="name" />
+    </div>
+    <div class="py-2">
+      <label>Apellido</label>
+      <input formControlName="lastName" />
+    </div>
+    <div class="py-2">
+      <label>Edad</label>
+      <input formControlName="age" />
+    </div>
+    <div class="py-2">
+      <button class="button" (click)="resetForm()">Resetear</button>
+    </div>
+  </form>
+
+  <div class="pt-5">
+    {{ form.value | json }}
+  </div>
+</div>
