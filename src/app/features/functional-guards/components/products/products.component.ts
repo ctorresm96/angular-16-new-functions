@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from '../../interfaces/product.interface';
 
@@ -10,12 +10,11 @@ import { IProduct } from '../../interfaces/product.interface';
 export class ProductsComponent implements OnInit {
   products: IProduct[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.data.subscribe((values: any) => {
-      console.log(values);
-      this.products = values.data;
+  constructor(private activatedRoute: ActivatedRoute) {}
+  ngOnInit(): void {
+    this.activatedRoute.data.subscribe((products: any) => {
+      console.log(products);
+      this.products = products;
     });
   }
-
-  ngOnInit(): void {}
 }

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -6,9 +7,15 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  @Input() permissions: any = '';
+  permissions: any = '';
+  users: any = [];
+
+  activatedRoute = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    console.log(this.permissions);
+    this.activatedRoute.data.subscribe((data) => {
+      this.permissions = data['permissions'];
+      this.users = [...data['users']];
+    });
   }
 }

@@ -5,9 +5,15 @@ import { MainResolver } from './common/resolvers/resolver';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'main',
+    pathMatch: 'full',
+  },
+  {
+    path: 'main',
     loadChildren: () =>
       import('./features/main/main.module').then((m) => m.MainModule),
     resolve: { permissions: MainResolver },
+    data: { users: [{ id: 1, name: 'John' }] },
   },
   {
     path: 'functional',
@@ -33,7 +39,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { bindToComponentInputs: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

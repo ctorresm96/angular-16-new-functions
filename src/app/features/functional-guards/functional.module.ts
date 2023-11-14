@@ -5,13 +5,12 @@ import { Route, RouterModule } from '@angular/router';
 import { PrivateDataComponent } from './components/private-data/private-data.component';
 import { ProductsComponent } from './components/products/products.component';
 import { AuthGuard } from './guards/auth.guard';
-import { UserResolver } from './resolvers/user.resolvers';
+import { ProductsResolver } from './resolvers/products.resolvers';
 
 const routes: Route[] = [
   {
     path: '',
     component: FunctionalComponent,
-
     children: [
       {
         path: 'private',
@@ -21,7 +20,7 @@ const routes: Route[] = [
       {
         path: 'products',
         component: ProductsComponent,
-        resolve: { data: UserResolver },
+        resolve: { products: ProductsResolver },
       },
       { path: '**', redirectTo: '' },
     ],

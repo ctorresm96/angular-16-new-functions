@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 import { Injectable, inject } from '@angular/core';
 
 // @Injectable({ providedIn: 'root' })
-// export class UserResolver implements Resolve<Observable<any>> {
+// export class ProductsResolver implements Resolve<Observable<any>> {
 //   constructor(public productsHttp: ProductsHttp) {}
 
 //   resolve():
@@ -20,7 +20,7 @@ import { Injectable, inject } from '@angular/core';
 //   }
 // }
 
-export const UserResolver: ResolveFn<any> = (
+export const ProductsResolver: ResolveFn<any> = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot,
   productsHttp: ProductsHttp = inject(ProductsHttp)
